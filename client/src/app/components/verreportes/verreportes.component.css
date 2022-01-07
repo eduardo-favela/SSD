@@ -1,0 +1,22 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cardheader{
+    background-color: midnightblue;
+    text-align: center;
+  }
+
+  thead{
+    background-color: midnightblue;
+  }
+
+  i {
+    pointer-events: none
+  }
+
+  .fa-check-circle{
+    font-size: xx-large;
+    color: green;
+  }

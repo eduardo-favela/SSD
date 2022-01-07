@@ -1,0 +1,22 @@
+.card-header{
+    background-color: #44bef1;
+    text-align: center;
+    font-size: 150%;
+  }
+  img{
+    max-width: fit-content;
+  }
+  p{
+    font-weight: bold;
+  }
+  
+  div.alert-danger{
+    text-align: center;
+  }
+  
+  div.alert-primary{
+    text-align: center;
+    font-size: x-large;
+    font-style: Bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }

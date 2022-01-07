@@ -1,0 +1,71 @@
+<div class="row mb-3">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Almacén</label>
+            <select [(ngModel)]='almacenSelected' (change)="getinventario()" class="form-control" id="exampleFormControlSelect1">
+                <option value=0 disabled selected>Seleccionar almacén...</option>
+                <option *ngFor="let almacen of almacenes" value="{{ almacen.idalmacen }}">{{ almacen.almacen }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="fechainvent">Fecha de inventario</label>
+            <input (change)="getinventario()" class="form-control" type="date" name="fechainventario" id="fechainvent">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="table" class="col-md-12">
+        <table id="tableInv" class="table table-responsive-lg">
+            <thead id="headtabla">
+                <tr class="inform">
+                    <th scope="col">Codigo poducto</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Unidad de medida</th>
+                    <th id="thinventfinalda" scope="col">Inventario final</th>
+                    <th id="thinventini" scope="col">Inventario inicial</th>
+                    <th id="thentradas" scope="col">Entradas</th>
+                    <th id="thsalidas" scope="col">Salidas</th>
+                </tr>
+            </thead>
+            <tbody id="bodytabla">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row mb-4 d-flex justify-content-center">
+    <div id="spinnerLoader" class="spinner-border" role="status" hidden>
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="row mt-4 d-flex justify-content-end">
+    <div class="col-md-2">
+        <button id="guardarcambiosbtn" (click)="guardarinfo();" type="button" class="btn btn-success">Guardar cambios</button>
+    </div>
+</div>
+
+<!-- MODAL -->
+
+<div class="modal fade" id="modalsuccess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="bg-dark modal-header">
+        <h5 class="modal-title text-light" id="staticBackdropLabel">Registro completo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-success text-center" role="alert">
+            <h3>Se guardaron los cambios correctamente</h3>
+            <i style="font-size: xxx-large;" class="fas fa-check-circle"></i>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>

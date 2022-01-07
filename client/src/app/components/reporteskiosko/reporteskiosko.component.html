@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Almacén</label>
+      <select [disabled]="selectdisabled" [(ngModel)]='almacenSelected' (change)="getproductos()" class="form-control" id="exampleFormControlSelect1">
+        <option value=0 disabled selected>Seleccionar almacén...</option>
+        <option *ngFor="let almacen of almacenes" value="{{ almacen.idalmacen }}">{{ almacen.almacen }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row mb-4 mt-4 d-flex justify-content-center">
+  <div [hidden]="loaderhidden" id="spinnerLoader" class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div [hidden]="cardshidden" class="row">
+  <div *ngIf="productsok.length>0" class="col-md-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center"><h4>Productos con bastante inventario en existencia</h4></li>
+      <li class="list-group-item" *ngFor="let producto of productsok">
+        <div class="card text-white bg-success" style="max-width: 20rem; margin: auto;">
+          <div class="card-header">Código del producto: {{producto.codigo}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{producto.producto}}</h5>
+            <p>Días de inventario en existencia: {{producto.diasinvex | number:'1.0-2'}}</p>
+            <p>Días de inventario por cubrir: {{producto.diasinvporcubrir | number:'1.0-2'}}</p>
+            <p>Inventario final actual: {{producto.invfinal | number:'1.0-2'}}</p>
+            <p>Tiempo de respuesta del proveedor: {{producto.tiemporesprov | number:'1.0-2'}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="productswarning.length>0" class="col-md-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center"><h4>Productos con inventario en existencia suficiente</h4></li>
+      <li class="list-group-item" *ngFor="let producto of productswarning">
+        <div class="card text-white bg-warning" style="max-width: 20rem; margin: auto;">
+          <div class="card-header">Código del producto: {{producto.codigo}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{producto.producto}}</h5>
+            <p>Días de inventario en existencia: {{producto.diasinvex | number:'1.0-2'}}</p>
+            <p>Días de inventario por cubrir: {{producto.diasinvporcubrir | number:'1.0-2'}}</p>
+            <p>Inventario final actual: {{producto.invfinal | number:'1.0-2'}}</p>
+            <p>Tiempo de respuesta del proveedor: {{producto.tiemporesprov | number:'1.0-2'}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="productsalert.length>0" class="col-md-4">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center"><h4>Productos con inventario en existencia insuficiente</h4></li>
+      <li class="list-group-item" *ngFor="let producto of productsalert">
+        <div class="card text-white bg-danger" style="max-width: 20rem; margin: auto;">
+          <div class="card-header">Código del producto: {{producto.codigo}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{producto.producto}}</h5>
+            <p>Días de inventario en existencia: {{producto.diasinvex | number:'1.0-2'}}</p>
+            <p>Días de inventario por cubrir: {{producto.diasinvporcubrir | number:'1.0-2'}}</p>
+            <p>Inventario final actual: {{producto.invfinal | number:'1.0-2'}}</p>
+            <p>Tiempo de respuesta del proveedor: {{producto.tiemporesprov | number:'1.0-2'}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
