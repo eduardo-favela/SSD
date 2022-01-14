@@ -25,10 +25,6 @@ class Server {
         this.app.use(body_parser_1.default.urlencoded({ limit: '50mb', extended: true }));
     }
     routes() {
-        /*         this.app.use('/api/centrosCostos', centrosCostosRoutes)
-                this.app.use('/api/equipos', equiposfallasRoutes)
-                this.app.use('/api/problemas', problemasComunesRoutes)
-                this.app.use('/api/reportes', reportesRoutes) */
         this.app.use('/api/compras', comprasRoutes_1.default);
         this.app.use('/api/login', loginRoutes_1.default);
     }

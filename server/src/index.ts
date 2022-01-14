@@ -25,10 +25,6 @@ class Server {
         this.app.use(bodyParser.urlencoded({limit: '50mb',extended: true}))
     }
     routes(): void{
-/*         this.app.use('/api/centrosCostos', centrosCostosRoutes)
-        this.app.use('/api/equipos', equiposfallasRoutes)
-        this.app.use('/api/problemas', problemasComunesRoutes)
-        this.app.use('/api/reportes', reportesRoutes) */
         this.app.use('/api/compras', comprasRoutes)
         this.app.use('/api/login', loginRoutes)
     }

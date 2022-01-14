@@ -96,8 +96,8 @@ export class HomeComponent implements OnInit {
 
                 if (this.inventarioactual.length>0) {
                   if(this.inventarioant.length>0){
-                      for (let i = 0; i < this.inventarioant.length; i++) {
-                        this.inventarioactual[i].invfinalant=this.inventarioant.find((obj: { codigo: any; }) => {return obj.codigo === this.inventarioactual[i].codigo}).invfinal
+                    for (let i = 0; i < this.inventarioant.length; i++) {
+                      this.inventarioactual[i].invfinalant=this.inventarioant.find((obj: { codigo: any; }) => {return obj.codigo === this.inventarioactual[i].codigo}).invfinal
                     }
                   }
                   else{
@@ -112,14 +112,14 @@ export class HomeComponent implements OnInit {
                     res=>{
                       let getProductos : any = res
                       if(this.inventarioant.length>0){
-                          for (let i = 0; i < this.inventarioant.length; i++) {
-                            getProductos[i].invfinalant=this.inventarioant.find((obj: { codigo: any; }) => {return obj.codigo === getProductos[i].codigo}).invfinal
-                          }
+                        for (let i = 0; i < this.inventarioant.length; i++) {
+                          getProductos[i].invfinalant=this.inventarioant.find((obj: { codigo: any; }) => {return obj.codigo === getProductos[i].codigo}).invfinal
+                        }
                       }
                       else{
-                          for (let j = 0; j < getProductos.length; j++) {
-                            getProductos[j].invfinalant = 0
-                          }
+                        for (let j = 0; j < getProductos.length; j++) {
+                          getProductos[j].invfinalant = 0
+                        }
                       }
                       this.filltable({inventario: getProductos, cinventario:false}) 
                     },
