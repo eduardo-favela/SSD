@@ -16,7 +16,7 @@
     "connect-multiparty": "^2.2.0",
     "convert-excel-to-json": "^1.7.0",
     "cors": "^2.8.5",
-    "excel4node": "^1.7.2",
+    "excel4node": "^1.2.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
